@@ -34,16 +34,16 @@ body = require("body-parser");
 path = require("path");
 
 app = express();
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(body.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(express.static("bower_components"));
 
 //make views path
-var views = path.join(process.cwd(),"views");
+var viewsDir = path.join(process.cwd(),"views");
 
 //homepage
 app.get("/",function(req,res){
-	res.send(phrases);
+	res.sendFile(path.join(viewsDir, "home.html"));
 });
 
 //json server out
