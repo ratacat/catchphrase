@@ -15,18 +15,18 @@ $(function() {
 function Phrase() {};
 
 Phrase.create = function($newPhraseData) {
-    console.log("submit init");
+    //console.log("submit init");
     if (!isValid()){
     	$('#error').html("Please add a word and a definition.");
     	return false;}
 
     //serialize grabs all inputs from form and turns to a string
 
-    console.log("npd:"+$newPhraseData);
+    //console.log("npd:"+$newPhraseData);
     if ($newPhraseData.indexOf("word")) {
         $.post("/phrases", $newPhraseData).
         done(function(data) {
-            console.log("d2:" + data);
+            //console.log("d2:" + data);
             render("phraseTemplate");
             $("#newPhraseForm")[0].reset();
 
@@ -36,7 +36,7 @@ Phrase.create = function($newPhraseData) {
 
 Phrase.delete = function(phrase) {
 	var phraseId = $(phrase).data().id;
-	console.log(phraseId);
+	//console.log(phraseId);
 	$.ajax({
 		url: '/phrases/' + phraseId,
 		type: 'DELETE',
@@ -50,12 +50,12 @@ Phrase.delete = function(phrase) {
 //when you try to pass anything but text through JSON.parse();
 
 function render(templateId) {
-	console.log("render init");
+	//console.log("render init");
 	//get json and build template view
     $.get('/phrases').done(function(phrases) {
-    	console.log(phrases);
+    	//console.log(phrases);
     	//phrases = JSON.parse(phrases);
-    	console.log(phrases);
+    	//console.log(phrases);
     	$("#cardRow").html('');
         _.each(phrases,function(element,index,list) {
          	//console.log("data: " + element);

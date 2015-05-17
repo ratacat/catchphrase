@@ -1,0 +1,34 @@
+app.delete("/phrases/:id", function(req,res) {
+	//var index; 
+	//set value of the id
+	//var targetId = req.params.id;
+	//console.log(phrases);
+
+	db.Phrase.findOneAndRemove({ _id : req.params._id }, 
+		function(err,todo) {
+			res.sendStatus(204);
+	});
+	//find item in the array matching the id
+	//var targetItem = _.findWhere(phrases, {id: targetId});
+
+	//had trouble comparing the targetId to the phraseId, target ID was a string
+	// for (var i=0;i<phrases.length;i++){
+	// 	console.log("phraseId: " + phrases[i].id + "("+typeof(phrases[i].id)+")");
+	// 	console.log("targetId: " + targetId + "("+typeof(targetId)+")");
+	// 	if (phrases[i].id.toString() === targetId) {
+	// 		index = i;
+	// 		console.log("i: "+ i);
+	// 	}
+	// }
+	//console.log("targetItem:" + targetItem);
+
+	//get the index of the found item
+	//var index = phrases.indexOf(targetItem);
+
+	//remove the item at that index, only remove 1 item
+	// console.log("splicing 1 element at index "+index);
+	// console.log(targetItem = phrases.splice(index,1));
+
+	//respond with the JSON of the item we deleted, good practice
+	//res.send(JSON.stringify(targetItem));
+});
