@@ -1,31 +1,21 @@
 //need express, body-parser, _underscore, jquery?
 //phrase objects
 //have id, word, & definitions
-phrases = [
+var phrases = [
 	{id: 0,word: "this",def: "a special word referring to the current context"},
 	{id: 1,word: "reference type",def: "a type of storage that holds a pointer to the actual object"},
 	{id: 2,word: "abstraction",def: "a mental model that represents an encapsulated set of properties and behaviors"}
 ];
 
-//route for del
+var express = require("express");
+var body = require("body-parser");
+var path = require("path");
+var _ = require("underscore");
+var db = require("./models.js");
 
+var uuid = require('node-uuid');
 
-//other files
-//app.js
-//--render 
-
-//index.html
-//base html
-//underscore template for card
-
-express = require("express");
-body = require("body-parser");
-path = require("path");
-_ = require("underscore");
-
-uuid = require('node-uuid');
-
-app = express();
+var app = express();
 app.use(body.urlencoded({extended: true}));
 
 app.use(express.static("public")); 
