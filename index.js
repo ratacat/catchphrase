@@ -1,6 +1,3 @@
-//need express, body-parser, _underscore, jquery?
-//phrase objects
-//have id, word, & definitions
 var phrases = [
 	{id: 0,word: "this",def: "a special word referring to the current context"},
 	{id: 1,word: "reference type",def: "a type of storage that holds a pointer to the actual object"},
@@ -29,10 +26,14 @@ app.get("/",function(req,res){
 	res.sendFile(path.join(viewsDir, "home.html"));
 });
 
+
 //json server out
 app.get("/phrases", function(req,res) {
-	var data = JSON.stringify(phrases);
-	res.send(data);
+	db.Phrase.find({},function(err,phrases) {
+		res.send(phrases);
+	});
+	// var data = JSON.stringify(phrases);
+	// res.send(data);
 });
 
 app.delete("/phrases/:id", function(req,res) {
@@ -68,17 +69,21 @@ app.delete("/phrases/:id", function(req,res) {
 
 //form server in
 app.post("/phrases",function(req,res) {
-	console.log("post received");
+	//console.log("post received");
 	newId = uuid.v4();
 	newId = newId.replace(/-/gi, '');
-	//console.log(newId);
-	phrases.push({
-		id: newId,
-		word: req.body.phrase.word,
-		def: req.body.phrase.def,
+	//console.log(req.body.phrase);
+	db.Phrase.create(req.body.phrase, 
+		function(err,phrase) {
+		res.sendStatus(201,phrase);
 	});
-	console.log(phrases[phrases.length-1]);
-	res.sendStatus(200);
+	// phrases.push({
+	// 	id: newId,
+	// 	word: req.body.phrase.word,
+	// 	def: req.body.phrase.def,
+	// });
+	//console.log(phrases[phrases.length-1]);
+	//res.sendStatus(200);
 });
 
 app.listen(3000,function() {

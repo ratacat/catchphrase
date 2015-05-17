@@ -46,14 +46,16 @@ Phrase.delete = function(phrase) {
 	});
 
 };
+//was getting error "Uncaught SyntaxError: unexpected token o       localhost/:1"
+//when you try to pass anything but text through JSON.parse();
 
 function render(templateId) {
 	console.log("render init");
 	//get json and build template view
     $.get('/phrases').done(function(phrases) {
-    	//console.log(typeof(phrases));
-    	phrases = JSON.parse(phrases);
-    	//console.log(phrases);
+    	console.log(phrases);
+    	//phrases = JSON.parse(phrases);
+    	console.log(phrases);
     	$("#cardRow").html('');
         _.each(phrases,function(element,index,list) {
          	//console.log("data: " + element);
