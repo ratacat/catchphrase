@@ -1,0 +1,55 @@
+.card {
+	background-color:#eae1ef;
+	height:250px;
+	width:250px;
+	margin:10px;
+	display:inline-block;
+	overflow:hidden;
+}
+
+#wordInput {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+#defInput {
+	display: block;
+	clear: both;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 8px;
+}
+
+#formButton {
+	margin: 0 auto;
+	display:block;
+	margin-top:8px;
+}
+
+#inputDiv {
+	  text-align:center;
+}
+
+#inputDiv h1 {
+  margin: 0 auto;
+  display: block;
+  width: 220px;
+}
+
+.xDelete {
+	margin:0;
+	padding:0;
+	position:relative;
+	float:right;
+	left: 10px;
+
+}
+
+#error {
+	display:block;
+	color:red;
+	height:16px;
+	width:300px;
+	margin:0 auto;
+}
