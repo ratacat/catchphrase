@@ -12,6 +12,8 @@
        	<script type="text/javascript" src="js/app.js"></script>
        	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'>
+
         <script type="text/javascript" >
         
         </script>
@@ -21,8 +23,8 @@
 	    <div class="" id="inputDiv">
 		    <h1>Catchphrase</h1>
 		    <form id="newPhraseForm" action="/phrases" method="POST">
-			    <input type="text" id="wordInput" name="phrase[word]">
-			    <textarea type="textarea" id="defInput" name="phrase[def]"></textarea>
+			    <input type="text" class="input" id="wordInput" name="phrase[word]">
+			    <textarea type="textarea" class="input" id="defInput" name="phrase[def]"></textarea>
 			    <span id="error"></span>
 			    <button id="formButton">add</button>
 		    </form>
